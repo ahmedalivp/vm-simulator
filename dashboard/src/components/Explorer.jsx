@@ -12,15 +12,8 @@ export default function Explorer({
     );
 
     function scrollTree(direction) {
-        const tree = treeRef.current;
-
-        if (!tree) return;
-
-        const isHorizontal = tree.scrollWidth > tree.clientWidth;
-
-        tree.scrollBy({
-            left: isHorizontal ? direction * 240 : 0,
-            top: isHorizontal ? 0 : direction * 180,
+        treeRef.current?.scrollBy({
+            left: direction * 240,
             behavior: "smooth",
         });
     }
@@ -169,7 +162,7 @@ export default function Explorer({
                         type="button"
                         onClick={previousPhase}
                     >
-                        ◀ PREV
+                        ◀
                     </button>
 
                     <div className="phase-display">
@@ -190,7 +183,7 @@ export default function Explorer({
                         type="button"
                         onClick={nextPhase}
                     >
-                        NEXT ▶
+                        ▶
                     </button>
 
                 </div>
