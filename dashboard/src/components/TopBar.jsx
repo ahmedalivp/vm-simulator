@@ -31,6 +31,13 @@ export default function TopBar({
         return () => clearInterval(interval);
     }, []);
 
+    const statusClass =
+        syncStatus === "SYNC ERROR" || syncStatus === "NO TEAM ACCESS"
+            ? "status-led-error"
+            : syncStatus === "SYNCING" || syncStatus === "CONNECTING"
+            ? "status-led-pending"
+            : "status-led-ok";
+
     return (
         <header className="topbar">
 
@@ -38,6 +45,7 @@ export default function TopBar({
 
                 <div className="topbar-title">
                     VIRTUAL CPU SIMULATOR
+                    <span className={`status-led-inline ${statusClass}`}></span>
                 </div>
 
                 <div className="topbar-subtitle">

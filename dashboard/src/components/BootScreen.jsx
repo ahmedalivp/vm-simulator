@@ -89,19 +89,18 @@ export default function BootScreen({ onFinish }) {
 
             <div className="boot-window">
 
-                <div className="boot-title glow">
-
-                    ╔════════════════════════════════════════════╗
-
-                    <br />
-
-                    ║        VM-220 TERMINAL WORKSTATION        ║
-
-                    <br />
-
-                    ╚════════════════════════════════════════════╝
-
-                </div>
+               <div className="boot-title glow">
+    <span className="boot-title-full">
+        ╔════════════════════════════════════════════╗
+        <br />
+        ║        VM-220 TERMINAL WORKSTATION        ║
+        <br />
+        ╚════════════════════════════════════════════╝
+    </span>
+    <span className="boot-title-compact">
+        VM-220 TERMINAL WORKSTATION
+    </span>
+</div>
 
                 <div className="boot-output">
 
