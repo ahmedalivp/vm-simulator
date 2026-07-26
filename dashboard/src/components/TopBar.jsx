@@ -5,6 +5,7 @@ export default function TopBar({
     total,
     completedPhases,
     totalPhases,
+    syncStatus,
 }) {
     const [time, setTime] = useState("");
 
@@ -50,7 +51,7 @@ export default function TopBar({
                 <span className="status-led"></span>
 
                 <span className="status-text">
-                    SYSTEM READY
+                    {syncStatus || "SYSTEM READY"}
                 </span>
 
             </div>
