@@ -17,7 +17,8 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body, #root { width: 100%; min-height: 100%; }
 body {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   color: var(--text);
   font-family: "VT323", monospace;
   background:
@@ -258,6 +259,169 @@ button { -webkit-tap-highlight-color: transparent; }
 @keyframes noiseMove { 0%{transform:translate(0)} 25%{transform:translate(-1px,1px)} 50%{transform:translate(1px,-1px)} 75%{transform:translate(-1px,-1px)} 100%{transform:translate(0)} }
 @keyframes scanRoll { from { transform: translateY(0); } to { transform: translateY(390%); } }
 @keyframes roomGlow { 0%,100% { opacity: .68; transform: translate(-50%, -48%) scale(.96); } 50% { opacity: 1; transform: translate(-50%, -48%) scale(1.08); } }
+
+@media (max-width: 980px) {
+  .crt-room {
+    overflow: auto;
+    padding: 16px 10px;
+  }
+
+  .crt-monitor {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 18px 14px 12px;
+  }
+
+  .crt-screen-frame {
+    min-height: 0;
+    height: auto;
+  }
+
+  .crt-screen {
+    min-height: 0;
+  }
+
+  .crt-content {
+    min-height: 0;
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+  }
+
+  .topbar-left,
+  .topbar-right {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .topbar-center {
+    width: 100%;
+    justify-content: flex-start;
+    order: 3;
+  }
+
+  .topbar-right {
+    justify-content: flex-start;
+  }
+
+  .terminal-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    overflow: visible;
+  }
+
+  .explorer,
+  .workspace {
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+  }
+
+  .explorer {
+    padding: 16px;
+  }
+
+  .explorer-heading {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .tree-controls {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .tree-controls button {
+    flex: 1 1 48%;
+    min-width: 0;
+  }
+
+  .workspace {
+    padding: 18px 18px 20px;
+  }
+
+  .workspace-header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .tree-controls button,
+  .auth-card button {
+    min-width: 0;
+    padding: 9px 10px;
+    font-size: 14px;
+  }
+
+  .tree-controls button {
+    flex: 1 1 100%;
+  }
+
+  .workspace-task {
+    grid-template-columns: 32px 38px minmax(0, 1fr);
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  .topbar-title {
+    font-size: 1.2rem;
+  }
+}
+
+  .workspace-title {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+
+  .workspace-subtitle {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 640px) {
+  .crt-room {
+    padding: 12px 8px;
+  }
+
+  .crt-monitor {
+    padding: 14px 10px 10px;
+  }
+
+  .topbar {
+    padding: 10px 10px;
+  }
+
+  .topbar-title {
+    font-size: 1.4rem;
+  }
+
+  .explorer,
+  .workspace {
+    padding: 12px;
+  }
+
+  .tree-controls button {
+    flex: 1 1 100%;
+  }
+
+  .workspace-task {
+    grid-template-columns: 36px 42px minmax(0, 1fr);
+    padding: 10px 11px;
+  }
+}
 @keyframes monitorFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 @keyframes crtFlicker {
   0%, 3%, 8%, 9%, 11%, 55%, 57%, 88%, 100% { opacity: 0; }
