@@ -8,8 +8,15 @@ export default function Explorer({
     const treeRef = useRef(null);
 
     function scrollTree(direction) {
-        treeRef.current?.scrollBy({
-            left: direction * 240,
+        const tree = treeRef.current;
+
+        if (!tree) return;
+
+        const isHorizontal = tree.scrollWidth > tree.clientWidth;
+
+        tree.scrollBy({
+            left: isHorizontal ? direction * 240 : 0,
+            top: isHorizontal ? 0 : direction * 180,
             behavior: "smooth",
         });
     }
@@ -34,14 +41,14 @@ export default function Explorer({
                         aria-label="Previous phases"
                         onClick={() => scrollTree(-1)}
                     >
-                        ◀
+                        ◀ PREV
                     </button>
                     <button
                         type="button"
                         aria-label="Next phases"
                         onClick={() => scrollTree(1)}
                     >
-                        ▶
+                        NEXT ▶
                     </button>
                 </div>
             </div>
