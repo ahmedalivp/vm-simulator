@@ -47,7 +47,7 @@ export default function BootScreen({ onFinish }) {
 
                     onFinish();
 
-                }, 1200);
+                }, 300);
 
                 return;
 
@@ -77,7 +77,7 @@ export default function BootScreen({ onFinish }) {
 
             }
 
-        }, 12);
+        }, 3);
 
         return () => clearInterval(interval);
 
