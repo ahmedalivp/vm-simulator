@@ -2,7 +2,8 @@ export const PHASES = [
   {
     id: "p0",
     addr: "0x00",
-    title: "Project setup",
+    dir: "project",
+    title: "Project Setup",
     tasks: [
       { id: "p0-0", text: "Create the Java project structure — src/, with packages for core, isa, assembler, persistence, and cli" },
       { id: "p0-1", text: "Initialize git and add a .gitignore for Java build output" },
@@ -10,10 +11,12 @@ export const PHASES = [
       { id: "p0-3", text: "Add the SQLite JDBC driver (or your chosen database) to the project" },
     ],
   },
+
   {
     id: "p1",
     addr: "0x01",
-    title: "Instruction set & class hierarchy",
+    dir: "instr",
+    title: "Instruction Set & Class Hierarchy",
     tasks: [
       { id: "p1-0", text: "Finalize the opcode list: LOAD, MOV, ADD, SUB, MUL, DIV, CMP, JMP, JZ, JNZ, PRINT, HALT" },
       { id: "p1-1", text: "Write the abstract Instruction class with execute(CPU cpu)" },
@@ -26,10 +29,12 @@ export const PHASES = [
       { id: "p1-8", text: "Make DivInstruction fail cleanly on division by zero instead of crashing the JVM" },
     ],
   },
+
   {
     id: "p2",
     addr: "0x02",
-    title: "CPU core",
+    dir: "cpu",
+    title: "CPU Core",
     tasks: [
       { id: "p2-0", text: "Decide how registers are stored — plain int[8] or a small Register class" },
       { id: "p2-1", text: "Implement the Flags class and its update(int result) logic" },
@@ -40,10 +45,12 @@ export const PHASES = [
       { id: "p2-6", text: "Hand-build one tiny program as Instruction objects and confirm LOAD → ADD → PRINT → HALT end to end" },
     ],
   },
+
   {
     id: "p3",
     addr: "0x03",
-    title: "Control flow",
+    dir: "control",
+    title: "Control Flow",
     tasks: [
       { id: "p3-0", text: "Wire CMP to update the flags the CPU checks" },
       { id: "p3-1", text: "Confirm JMP correctly changes pc mid-loop" },
@@ -52,9 +59,11 @@ export const PHASES = [
       { id: "p3-4", text: "Decide what happens on a jump to an out-of-range address — fail loudly, don't wrap silently" },
     ],
   },
+
   {
     id: "p4",
     addr: "0x04",
+    dir: "asm",
     title: "Assembler",
     tasks: [
       { id: "p4-0", text: "Write down the exact assembly syntax — operand order, separators, comment character" },
@@ -66,9 +75,11 @@ export const PHASES = [
       { id: "p4-6", text: "Run every opcode through the assembler at least once" },
     ],
   },
+
   {
     id: "p5",
     addr: "0x05",
+    dir: "jdbc",
     title: "Persistence (JDBC)",
     tasks: [
       { id: "p5-0", text: "Finalize the programs and execution_log table schemas" },
@@ -80,9 +91,11 @@ export const PHASES = [
       { id: "p5-6", text: "Quit the program, relaunch it, and confirm a saved program and its log are still there" },
     ],
   },
+
   {
     id: "p6",
     addr: "0x06",
+    dir: "cli",
     title: "CLI",
     tasks: [
       { id: "p6-0", text: "Main class: accept a file path argument and run it top to bottom" },
@@ -91,10 +104,12 @@ export const PHASES = [
       { id: "p6-3", text: "Handle a missing file and a missing HALT without crashing" },
     ],
   },
+
   {
     id: "p7",
     addr: "0x07",
-    title: "Testing & docs",
+    dir: "testing",
+    title: "Testing & Documentation",
     tasks: [
       { id: "p7-0", text: "Turn TC-01 through TC-07 from the design doc into real runnable tests" },
       { id: "p7-1", text: "Add edge cases the design doc doesn't cover: empty program, program with no HALT" },
@@ -104,10 +119,12 @@ export const PHASES = [
       { id: "p7-5", text: "Do one clean run-through following only your own user manual, start to finish" },
     ],
   },
+
   {
     id: "pF",
     addr: "0xFF",
-    title: "Stretch goals",
+    dir: "extras",
+    title: "Stretch Goals",
     optional: true,
     tasks: [
       { id: "pF-0", text: "Add a stack plus CALL and RET for function calls" },
