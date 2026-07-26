@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    background: #0d1117;
+    color: #e6edf3;
+    font-family: Inter, sans-serif;
+}
+
+.app {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.phase-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+
+.phase-title {
+    color: #ff9f45;
+}
+
+.task {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.task:hover {
+    background: #21262d;
+}
+
+.checked {
+    color: #7d8590;
+    text-decoration: line-through;
+}
